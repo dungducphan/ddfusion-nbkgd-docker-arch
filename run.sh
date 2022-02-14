@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ./build.sh
-docker run --rm -it dungphan90/dd-nbkgd:latest
-
+docker run -it --mount type=bind,src=`pwd`/output,dst=/home/build/Geant4/build/output dungphan90/dd-nbkgd:latest
+/bin/bash
