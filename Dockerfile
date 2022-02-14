@@ -1,8 +1,13 @@
 FROM dungphan90/g4root-arch:latest
 
-RUN mkdir -p /home/user/sim/nbkgd
-RUN git clone https://github.com/dungducphan/ddfusion-nbkgd.git /home/user/sim/nbkgd
-RUN mkdir -p /home/user/sim/build
-WORKDIR /home/user/sim/build
-RUN cmake /home/user/sim/nbkgd -DCMAKE_CXX_STANDARD=17 -GNinja
+RUN mkdir -p /home/build/sim/
+COPY ddfusion-nbkgd /home/build/sim/ddfusion-nbkgd
+
+RUN mkdir -p /home/build/sim/build
+WORKDIR /home/build/sim/build
+RUN cmake /home/build/sim/ddfusion-nbkgd -DCMAKE_CXX_STANDARD=17 -GNinja
 RUN ninja
+USER root
+COPY entry.sh /usr/local/bin/entry.sh
+RUN chmod +x /usr/local/bin/entry.sh
+ENTRYPOINT entry.sh

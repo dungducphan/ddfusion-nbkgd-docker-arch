@@ -1,0 +1,3 @@
+[submodule "ddfusion-nbkgd"]
+	path = ddfusion-nbkgd
+	url = git@github.com:dungducphan/ddfusion-nbkgd.git
