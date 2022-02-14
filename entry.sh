@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
-/bin/sh
+source /usr/local/bin/geant4.sh
+/bin/bash
