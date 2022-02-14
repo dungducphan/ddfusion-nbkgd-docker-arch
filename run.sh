@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ./build.sh
-docker run -it --mount type=bind,src=`pwd`/output,dst=/home/build/Geant4/build/output dungphan90/dd-nbkgd:latest
+docker run --rm --mount type=bind,src=`pwd`/output,dst=/home/build/sim/build/output/ -it dungphan90/dd-nbkgd:latest
